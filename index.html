@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tus Servicios — Jardinería</title>
+
+  <!-- Tipografías especiales (Google Fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./imagenes/logo.png" />
+  <meta name="description" content="Presentación de servicios con estilo verde pasto, enlaces interactivos y navegación inferior con iconos." />
+</head>
+
+<body>
+    <!-- Loader pantalla completa -->
+<div id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__brand">Jardín Vivo</div>
+    <div class="loader__spinner" role="progressbar" aria-label="Cargando"></div>
+  </div>
+</div>
+
+  <!-- Encabezado -->
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Inicio">
+      <img src="./imagenes/logo.png" alt="Logo de la marca" class="brand__logo" />
+      <span class="brand__name">Jardín Vivo</span>
+    </a>
+
+    <div class="social" aria-label="Redes sociales">
+      <a class="social__link" href="https://wa.me/5491112345678" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <!-- WhatsApp SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.92 11.92 0 0 0 12 .5C5.66.5.5 5.66.5 12c0 1.99.49 3.87 1.42 5.56L.5 23.5l6.09-1.57A11.42 11.42 0 0 0 12 23.5c6.34 0 11.5-5.16 11.5-11.5 0-3.07-1.2-5.95-3.48-8.52ZM12 21.2c-1.77 0-3.48-.47-4.98-1.36l-.36-.21-3.61.93.96-3.52-.23-.38A9.75 9.75 0 0 1 2.8 12c0-5.07 4.13-9.2 9.2-9.2s9.2 4.13 9.2 9.2-4.13 9.2-9.2 9.2Zm5.33-6.8c-.29-.14-1.71-.84-1.97-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.34.21-.63.07-.29-.14-1.2-.44-2.3-1.41-.85-.76-1.43-1.7-1.6-1.98-.17-.29-.02-.45.12-.59.12-.12.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.13-.23-.55-.46-.48-.64-.48h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.03 2.82 1.18 3.01c.14.19 2.03 3.1 4.93 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.71-.7 1.96-1.38.24-.67.24-1.25.17-1.38-.07-.14-.26-.21-.55-.36Z"></path></svg>
+      </a>
+      <a class="social__link" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <!-- Instagram SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.27 0 3.67.01 4.96.07 1.2.06 1.85.26 2.28.43.57.22.98.49 1.41.92.43.43.7.83.92 1.4.17.44.37 1.09.43 2.29.06 1.29.07 1.69.07 4.96s-.01 3.67-.07 4.96c-.06 1.2-.26 1.85-.43 2.28a3.87 3.87 0 0 1-.92 1.41c-.43.43-.83.7-1.41.92-.44.17-1.09.37-2.29.43-1.29.06-1.69.07-4.96.07s-3.67-.01-4.96-.07c-1.2-.06-1.85-.26-2.28-.43a3.87 3.87 0 0 1-1.41-.92 3.87 3.87 0 0 1-.92-1.41c-.17-.44-.37-1.09-.43-2.29C2.2 15.67 2.2 15.27 2.2 12s.01-3.67.07-4.96c.06-1.2.26-1.85.43-2.28.22-.57.49-.98.92-1.41.43-.43.83-.7 1.41-.92.44-.17 1.09-.37 2.29-.43C8.33 2.21 8.73 2.2 12 2.2m0-1.7C8.68.5 8.25.51 6.96.57 5.67.63 4.77.84 4.02 1.13c-.77.3-1.43.7-2.09 1.36S1.16 3.25.87 4.02C.58 4.77.37 5.67.31 6.96.25 8.25.2 8.68.2 12s.05 3.75.11 5.04c.06 1.29.27 2.19.56 2.94.29.77.7 1.43 1.36 2.09.66.66 1.32 1.07 2.09 1.36.75.29 1.65.5 2.94.56 1.29.06 1.72.11 5.04.11s3.75-.05 5.04-.11c1.29-.06 2.19-.27 2.94-.56.77-.29 1.43-.7 2.09-1.36.66-.66 1.07-1.32 1.36-2.09.29-.75.5-1.65.56-2.94.06-1.29.11-1.72.11-5.04s-.05-3.75-.11-5.04c-.06-1.29-.27-2.19-.56-2.94-.29-.77-.7-1.43-1.36-2.09C21.48.83 20.82.42 20.05.13c-.75-.29-1.65-.5-2.94-.56C15.82-.49 15.39-.5 12-.5Z"/><path d="M12 5.8A6.2 6.2 0 1 0 18.2 12 6.21 6.21 0 0 0 12 5.8Zm0 10.2A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.4-10.9a1.45 1.45 0 1 0 1.45 1.45A1.45 1.45 0 0 0 18.4 5.1Z"/></svg>
+      </a>
+      <a class="social__link" href="https://x.com/" target="_blank" rel="noopener" aria-label="X">
+        <!-- X (Twitter) SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.83l-4.62-6.03L5.1 22H2.34l7.05-8.05L2 2h6.86l4.17 5.6L18.24 2Zm-1.2 18h1.88L7.05 4H5.05l12 16Z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero / Presentación breve -->
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title" class="hero__title">Cuidamos tu jardín con pasión</h1>
+    <p class="hero__subtitle">Podas, diseño de espacios verdes, riego y mantenimiento integral.</p>
+    <a href="#servicios" class="btn btn--primary">Ver servicios</a>
+  </section>
+
+  <!-- Presentación de los servicios -->
+  <main id="servicios" class="services" aria-labelledby="servicios-title">
+    <h2 id="servicios-title" class="section-title">Nuestros servicios</h2>
+
+    <div class="services__grid">
+      <article class="card">
+        <h3 class="card__title">Poda</h3>
+        <p class="card__text">
+          Poda segura para árboles y arbustos, dando forma y salud a tus plantas.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Diseño de jardines</h3>
+        <p class="card__text">
+          Propuestas estéticas y funcionales con especies adaptadas a tu espacio.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Mantenimiento</h3>
+        <p class="card__text">
+          Plan de cuidados para todo el año.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Siembra de pasto</h3>
+        <p class="card__text">
+          La siembra de pasto renueva tu jardín con cobertura uniforme y resistente.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Colocacion de pasto</h3>
+        <p class="card__text">
+          ideal para quienes buscan un resultado rápido, uniforme y resistente sin esperar semanas de germinación.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Cortar el cesped</h3>
+        <p class="card__text">
+          El corte de césped regular mantiene tu jardín parejo, sano y estético.
+        </p>
+      </article>
+    </div>
+  </main>
+
+  <!-- Sección Sobre nosotros -->
+  <section id="sobre" class="about" aria-labelledby="sobre-title">
+    <h2 id="sobre-title" class="section-title">Sobre nosotros</h2>
+    <p>
+      Somos un equipo especializado en jardinería y paisajismo. Trabajamos con
+      materiales de primera y un enfoque sustentable para que tu verde luzca siempre vivo.
+    </p>
+  </section>
+
+
+  <!-- Barra inferior con 3 iconos -->
+  <nav class="bottom-bar" aria-label="Navegación inferior">
+    <a class="bottom-bar__item" href="#" aria-label="Home">
+      <!-- Casa -->
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2 12h3v9h6v-6h2v6h6v-9h3L12 3.1Z"/></svg>
+      <span>Home</span>
+    </a>
+    <a class="bottom-bar__item" href="./contacto.html" aria-label="Contacto">
+      <!-- Teléfono -->
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.07 22 2 13.93 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+      <span>Contacto</span>
+    </a>
+    <a class="bottom-bar__item" href="./tienda.html" aria-label="Tiendas">
+      <!-- Carrito -->
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6h14.1l-1.3 7.3a2 2 0 0 1-2 1.7H9a2 2 0 0 1-2-1.4L4.3 2H1V0h4a1 1 0 0 1 1 .8L6.2 6Z"/></svg>
+      <span>Tienda</span>
+    </a>
+  </nav>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Jardín Vivo — Todos los derechos reservados.</small>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+  // Marca el body como "cargando" para evitar scroll
+  document.documentElement.classList.add('js');
+  document.body.classList.add('is-loading');
+
+  // Ocultar loader cuando todo está listo
+  function hideLoader(){
+    const loader = document.getElementById('loader');
+    if(!loader) return;
+    loader.style.opacity = '0';
+    loader.style.pointerEvents = 'none';
+    document.body.classList.remove('is-loading');
+    // Remover del DOM después de la transición (opcional)
+    setTimeout(()=> loader.remove(), 300);
+  }
+
+  // 1) Cuando termine de cargar
+  window.addEventListener('load', () => {
+    // Mantenelo mínimo 600ms visible para que se vea elegante
+    setTimeout(hideLoader, 600);
+  });
+
+  // 2) Fallback: si algo falla, que no quede pegado (>6s)
+  setTimeout(hideLoader, 6000);
+</script>
+
+</body>
+</html>

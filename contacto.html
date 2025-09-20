@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto — Jardín Vivo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./imagenes/logo.png" />
+  <meta name="description" content="Contactanos para presupuestos de poda, colocación y mantenimiento de césped.">
+  <style>
+    /* Estilos mínimos solo para formularios, sin romper tu styles.css */
+    .contact-page{ padding: 1rem clamp(1rem,4vw,2rem) 4rem; }
+    .contact-hero{ text-align:center; padding: clamp(2rem,5vw,4rem) 1rem 1rem; }
+    .contact-grid{
+      display:grid; gap:1rem; grid-template-columns: 1fr; max-width:1100px; margin:0 auto;
+    }
+    @media (min-width:900px){ .contact-grid{ grid-template-columns: 1fr 1fr; } }
+
+    .info-card{
+      background: var(--white);
+      border: 1px solid color-mix(in oklab, var(--grass) 25%, transparent);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .info-list{ margin:.6rem 0 0; padding:0; list-style:none; }
+    .info-list li{ margin:.35rem 0; }
+
+    form.contact-form{
+      background: var(--white);
+      border: 1px solid color-mix(in oklab, var(--grass) 25%, transparent);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      display: grid; gap:.8rem;
+    }
+    .field{ display:grid; gap:.35rem; }
+    .field label{ font-weight:700; color: var(--grass); }
+    .field input, .field select, .field textarea{
+      border: 1px solid color-mix(in oklab, var(--grass) 30%, transparent);
+      border-radius: 10px;
+      padding: .7rem .8rem;
+      font: inherit; background: var(--bg); color: inherit;
+    }
+    .field textarea{ min-height: 140px; resize: vertical; }
+    .form-row{ display:grid; gap:.6rem; grid-template-columns: 1fr; }
+    @media (min-width:700px){ .form-row{ grid-template-columns: 1fr 1fr; } }
+
+    .helper{ font-size:.9rem; color: color-mix(in oklab, var(--grass) 70%, #1a1a1a); }
+  </style>
+</head>
+<body>
+     <!-- Loader pantalla completa -->
+<div id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__brand">Jardín Vivo</div>
+    <div class="loader__spinner" role="progressbar" aria-label="Cargando"></div>
+  </div>
+</div>
+
+  <!-- HÉROE -->
+  <section class="contact-hero">
+    <h1 class="hero__title">Contactanos</h1>
+    <p class="hero__subtitle">Presupuestos sin cargo para <strong>siembra</strong>, <strong>colocación</strong> y <strong>corte de césped</strong>.</p>
+    <a class="btn btn--primary" href="https://wa.me/5491112345678?text=Hola%20%F0%9F%91%8B%2C%20quiero%20un%20presupuesto%20para%20mi%20jard%C3%ADn." target="_blank" rel="noopener">Escribime por WhatsApp</a>
+  </section>
+
+  <main class="contact-page">
+    <div class="contact-grid">
+      <!-- Tarjeta de información -->
+      <aside class="info-card">
+        <h2 class="section-title" style="margin-top:0;">Datos de contacto</h2>
+        <ul class="info-list">
+          <li>📞 Tel.: <a href="tel:+5491112345678">+54 9 11 1234-5678</a></li>
+          <li>✉️ Email: <a href="mailto:contacto@tusitiowebadistancia.com">contacto@tusitiowebadistancia.com</a></li>
+          <li>📍 Zona: AMBA y alrededores</li>
+          <li>🕒 Horario: Lun a Sáb — 9 a 18 h</li>
+        </ul>
+
+        <h3 class="card__title" style="margin-top:1rem;">Redes sociales</h3>
+        <p class="helper">Seguinos para ver trabajos y novedades.</p>
+        <p style="display:flex; gap:.5rem; flex-wrap:wrap;">
+          <a class="btn" href="https://wa.me/5491112345678" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn--outline" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn btn--outline" href="https://x.com/" target="_blank" rel="noopener">X</a>
+        </p>
+      </aside>
+
+      <!-- Formulario -->
+      <section>
+        <h2 class="section-title">Escribinos</h2>
+        <!-- Reemplazá el action con tu endpoint (Formspree/tu backend) -->
+        <form class="contact-form" action="#" method="post" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
+            </div>
+            <div class="field">
+              <label for="telefono">Teléfono</label>
+              <input id="telefono" name="telefono" type="tel" placeholder="+54 9 11 ..." inputmode="tel" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="tucorreo@mail.com" required />
+            </div>
+            <div class="field">
+              <label for="servicio">Servicio de interés</label>
+              <select id="servicio" name="servicio" required>
+                <option value="" selected disabled>Elegí una opción</option>
+                <option>Siembra de pasto</option>
+                <option>Colocación de pasto</option>
+                <option>Corte de césped</option>
+                <option>Riego y mantenimiento</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Contanos sobre tu jardín (m², zona de sombra/sol, etc.)" required></textarea>
+          </div>
+
+          <div class="field" style="align-items:start;">
+            <label style="display:flex; gap:.5rem; align-items:center; font-weight:400;">
+              <input type="checkbox" name="acepto" required />
+              Acepto ser contactadx por WhatsApp o email.
+            </label>
+            <span class="helper">Usamos tus datos únicamente para responder tu consulta.</span>
+          </div>
+
+          <div style="display:flex; gap:.6rem; flex-wrap:wrap;">
+            <button type="submit" class="btn">Enviar</button>
+            <a class="btn btn--outline"
+               href="https://wa.me/5491112345678?text=Hola%20%F0%9F%91%8B%2C%20quiero%20un%20presupuesto%20para%20mi%20jard%C3%ADn."
+               target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- Barra inferior con 3 iconos (sin header) -->
+  <nav class="bottom-bar" aria-label="Navegación inferior">
+    <a class="bottom-bar__item" href="index.html" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2 12h3v9h6v-6h2v6h6v-9h3L12 3.1Z"/></svg>
+      <span>Home</span>
+    </a>
+    <a class="bottom-bar__item" href="contacto.html" aria-label="Contacto">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.07 22 2 13.93 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+      <span>Contacto</span>
+    </a>
+    <a class="bottom-bar__item" href="tienda.html" aria-label="Tiendas">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6h14.1l-1.3 7.3a2 2 0 0 1-2 1.7H9a2 2 0 0 1-2-1.4L4.3 2H1V0h4a1 1 0 0 1 1 .8L6.2 6Z"/></svg>
+      <span>Tienda</span>
+    </a>
+  </nav>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Jardín Vivo — Todos los derechos reservados.</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Opción: interceptar submit y abrir WhatsApp con los datos del formulario
+    // Descomentá si preferís que siempre vaya por WhatsApp.
+    /*
+    document.querySelector('form.contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const tel = document.getElementById('telefono').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const servicio = document.getElementById('servicio').value;
+      const mensaje = document.getElementById('mensaje').value.trim();
+      const texto = `Hola 👋, soy ${nombre}. Quiero consultar por: ${servicio}.
+Tel: ${tel} | Email: ${email}
+Mensaje: ${mensaje}`;
+      const wa = `https://wa.me/5491112345678?text=${encodeURIComponent(texto)}`;
+      window.open(wa, '_blank', 'noopener');
+    });
+    */
+  </script>
+  <script>
+  // Marca el body como "cargando" para evitar scroll
+  document.documentElement.classList.add('js');
+  document.body.classList.add('is-loading');
+
+  // Ocultar loader cuando todo está listo
+  function hideLoader(){
+    const loader = document.getElementById('loader');
+    if(!loader) return;
+    loader.style.opacity = '0';
+    loader.style.pointerEvents = 'none';
+    document.body.classList.remove('is-loading');
+    // Remover del DOM después de la transición (opcional)
+    setTimeout(()=> loader.remove(), 300);
+  }
+
+  // 1) Cuando termine de cargar
+  window.addEventListener('load', () => {
+    // Mantenelo mínimo 600ms visible para que se vea elegante
+    setTimeout(hideLoader, 600);
+  });
+
+  // 2) Fallback: si algo falla, que no quede pegado (>6s)
+  setTimeout(hideLoader, 6000);
+</script>
+
+</body>
+</html>

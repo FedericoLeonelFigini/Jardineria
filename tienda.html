@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda — Jardín Vivo</title>
+
+  <!-- Reusa el mismo CSS del index -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="./imagenes/logo.png" />
+  <meta name="description" content="Tienda con carruseles de productos de jardinería: nuevos ingresos, más vendidos y ofertas." />
+
+  <!-- Mini estilos específicos del carrusel (no rompen el diseño existente) -->
+  <style>
+    .shop-wrap{ padding: 1rem clamp(1rem,4vw,2rem) 4rem; }
+    .carousel{
+      position: relative; margin: 1rem 0 2rem;
+      background: var(--white);
+      border: 1px solid color-mix(in oklab, var(--grass) 25%, transparent);
+      border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+    }
+    .carousel__header{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: .9rem 1rem; border-bottom: 1px solid color-mix(in oklab, var(--grass) 20%, transparent);
+    }
+    .carousel__title{ margin:0; font-size:1.2rem; font-family:"Pacifico", cursive; }
+    .carousel__viewport{ overflow: hidden; }
+    .carousel__track{
+      display: grid; grid-auto-flow: column; grid-auto-columns: 80%;
+      gap: .8rem; padding: 1rem;
+    }
+    @media (min-width: 640px){ .carousel__track{ grid-auto-columns: 50%; } }
+    @media (min-width: 900px){ .carousel__track{ grid-auto-columns: 33.333%; } }
+    @media (min-width: 1200px){ .carousel__track{ grid-auto-columns: 25%; } }
+
+    .product{
+      display: grid; grid-template-rows: 180px auto; gap: .6rem;
+      border: 1px solid color-mix(in oklab, var(--grass) 25%, transparent);
+      border-radius: var(--radius); padding: .7rem; background: var(--bg);
+    }
+    .product__img{
+      width: 100%; height: 100%; object-fit: cover; border-radius: 12px;
+      background: #eef6ee;
+    }
+    .product__name{ margin:.2rem 0; font-weight:700; color: var(--grass); }
+    .product__price{ margin:0; font-weight:800; }
+    .product__cta{ display:flex; gap:.5rem; margin-top:.4rem; }
+    .product__cta .btn{ flex:1; text-align:center; padding:.55rem .7rem; }
+
+    .carousel__btn{
+      position: absolute; top: 50%; translate: 0 -50%;
+      display:grid; place-items:center; width:38px; height:38px; border-radius:50%;
+      border: 2px solid var(--grass); background: var(--white); cursor: pointer;
+    }
+    .carousel__btn:hover{ background: var(--grass); color: var(--white); }
+    .carousel__btn--prev{ left: .6rem; }
+    .carousel__btn--next{ right: .6rem; }
+    .carousel__btn svg{ width:18px; height:18px; fill: currentColor; }
+  </style>
+</head>
+<body>
+  <!-- Loader pantalla completa -->
+<div id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__brand">Jardín Vivo</div>
+    <div class="loader__spinner" role="progressbar" aria-label="Cargando"></div>
+  </div>
+</div>
+
+  <main class="shop-wrap" id="tiendas">
+    <h1 class="section-title">Nuestra Tienda</h1>
+
+    <!-- Carrusel 1: Nuevos ingresos -->
+    <section class="carousel" data-carousel="nuevos">
+      <div class="carousel__header">
+        <h2 class="carousel__title">Nuevos ingresos</h2>
+        <a href="#" class="btn btn--outline">Ver todo</a>
+      </div>
+
+      <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="carousel__btn carousel__btn--next" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24"><path d="m8.59 16.59 1.41 1.41L16 12l-5.99-6-1.41 1.41L13.17 12z"/></svg>
+      </button>
+
+      <div class="carousel__viewport">
+        <div class="carousel__track">
+          <!-- 10 productos -->
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod1.jpg" alt="Tijera de podar profesional" />
+            <div>
+              <h3 class="product__name">Tijera de podar</h3>
+              <p class="product__price">$ 25.000</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Tijera de podar" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod2.jpg" alt="Manguera extensible 15 m" />
+            <div>
+              <h3 class="product__name">Manguera 15 m</h3>
+              <p class="product__price">$ 19.900</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Manguera 15 m" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod3.jpg" alt="Rollo de césped natural 1 m²" />
+            <div>
+              <h3 class="product__name">Césped en rollo</h3>
+              <p class="product__price">$ 10.500</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Césped en rollo" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod4.jpg" alt="Kit riego por goteo" />
+            <div>
+              <h3 class="product__name">Kit goteo</h3>
+              <p class="product__price">$ 29.000</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Kit goteo" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod5.jpg" alt="Sustrato universal 20L" />
+            <div>
+              <h3 class="product__name">Sustrato 20L</h3>
+              <p class="product__price">$ 8.200</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Sustrato 20L" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod6.jpg" alt="Rastrillo metálico" />
+            <div>
+              <h3 class="product__name">Rastrillo</h3>
+              <p class="product__price">$ 7.900</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Rastrillo" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod7.jpg" alt="Pala de punta" />
+            <div>
+              <h3 class="product__name">Pala de punta</h3>
+              <p class="product__price">$ 12.300</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Pala de punta" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod8.jpg" alt="Fertilizante césped 5kg" />
+            <div>
+              <h3 class="product__name">Fertilizante 5kg</h3>
+              <p class="product__price">$ 15.900</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Fertilizante 5kg" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod9.jpg" alt="Cortabordes eléctrico" />
+            <div>
+              <h3 class="product__name">Cortabordes</h3>
+              <p class="product__price">$ 38.500</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Cortabordes" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="product card">
+            <img class="product__img" src="./imagenes/prod10.jpg" alt="Guantes de jardinería" />
+            <div>
+              <h3 class="product__name">Guantes PRO</h3>
+              <p class="product__price">$ 5.600</p>
+              <div class="product__cta">
+                <a class="btn buy-btn" data-product="Guantes PRO" target="_blank" rel="noopener">Comprar</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrusel 2: Más vendidos -->
+    <section class="carousel" data-carousel="mas-vendidos">
+      <div class="carousel__header">
+        <h2 class="carousel__title">Más vendidos</h2>
+        <a href="#" class="btn btn--outline">Ver todo</a>
+      </div>
+
+      <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="carousel__btn carousel__btn--next" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24"><path d="m8.59 16.59 1.41 1.41L16 12l-5.99-6-1.41 1.41L13.17 12z"/></svg>
+      </button>
+
+      <div class="carousel__viewport">
+        <div class="carousel__track">
+          <!-- 10 productos -->
+          <article class="product card"><img class="product__img" src="./imagenes/mv1.jpg" alt="Regadera metálica" /><div><h3 class="product__name">Regadera metálica</h3><p class="product__price">$ 14.700</p><div class="product__cta"><a class="btn buy-btn" data-product="Regadera metálica" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/mv2.jpg" alt="Semillas césped" /><div><h3 class="product__name">Semillas césped</h3><p class="product__price">$ 9.500</p><div class="product__cta"><a class="btn buy-btn" data-product="Semillas césped" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/mv3.jpg" alt="Aspersor circular" /><div><h3 class="product__name">Aspersor</h3><p class="product__price">$ 11.200</p><div class="product__cta"><a class="btn buy-btn" data-product="Aspersor" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/mv4.jpg" alt="Tierra negra 20kg" /><div><h3 class="product__name">Tierra negra 20kg</h3><p class="product__price">$ 6.800</p><div class="product__cta"><a class="btn buy-btn" data-product="Tierra negra 20kg" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/mv5.jpg" alt="Maceta cemento 30cm" /><div><h3 class="product__name">Maceta 30cm</h3><p class="product__price">$ 17.900</p><div class="product__cta"><a class="btn buy-btn" data-product="Maceta 30cm" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/mv6.jpg" alt="Rollo césped premium" /><div><h3 class="product__name">Césped premium</h3><p class="product__price">$ 12.900</p><div class="product__cta"><a class="btn buy-btn" data-product="Césped premium" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/mv7.jpg" alt="Bordeadora eléctrica" /><div><h3 class="product__name">Bordeadora</h3><p class="product__price">$ 41.000</p><div class="product__cta"><a class="btn buy-btn" data-product="Bordeadora" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/mv8.jpg" alt="Abono granulado" /><div><h3 class="product__name">Abono granulado</h3><p class="product__price">$ 9.900</p><div class="product__cta"><a class="btn buy-btn" data-product="Abono granulado" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/mv9.jpg" alt="Manguera reforzada 25 m" /><div><h3 class="product__name">Manguera 25 m</h3><p class="product__price">$ 28.200</p><div class="product__cta"><a class="btn buy-btn" data-product="Manguera 25 m" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/mv10.jpg" alt="Guantes premium" /><div><h3 class="product__name">Guantes premium</h3><p class="product__price">$ 7.400</p><div class="product__cta"><a class="btn buy-btn" data-product="Guantes premium" target="_blank" rel="noopener">Comprar</a></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carrusel 3: Ofertas -->
+    <section class="carousel" data-carousel="ofertas">
+      <div class="carousel__header">
+        <h2 class="carousel__title">Ofertas</h2>
+        <a href="#" class="btn btn--outline">Ver todo</a>
+      </div>
+
+      <button class="carousel__btn carousel__btn--prev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="carousel__btn carousel__btn--next" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24"><path d="m8.59 16.59 1.41 1.41L16 12l-5.99-6-1.41 1.41L13.17 12z"/></svg>
+      </button>
+
+      <div class="carousel__viewport">
+        <div class="carousel__track">
+          <!-- 10 productos -->
+          <article class="product card"><img class="product__img" src="./imagenes/of1.jpg" alt="Semillas sombra 1kg" /><div><h3 class="product__name">Semillas sombra 1kg</h3><p class="product__price"><s>$ 12.000</s> $ 9.600</p><div class="product__cta"><a class="btn buy-btn" data-product="Semillas sombra 1kg" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/of2.jpg" alt="Cortacésped a batería" /><div><h3 class="product__name">Cortacésped batería</h3><p class="product__price"><s>$ 210.000</s> $ 189.000</p><div class="product__cta"><a class="btn buy-btn" data-product="Cortacésped batería" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/of3.jpg" alt="Pala ancha" /><div><h3 class="product__name">Pala ancha</h3><p class="product__price"><s>$ 13.500</s> $ 10.800</p><div class="product__cta"><a class="btn buy-btn" data-product="Pala ancha" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/of4.jpg" alt="Kit riego programable" /><div><h3 class="product__name">Kit riego prog.</h3><p class="product__price"><s>$ 49.900</s> $ 42.500</p><div class="product__cta"><a class="btn buy-btn" data-product="Kit riego prog." target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/of5.jpg" alt="Tijera telescópica" /><div><h3 class="product__name">Tijera telescópica</h3><p class="product__price"><s>$ 39.900</s> $ 33.900</p><div class="product__cta"><a class="btn buy-btn" data-product="Tijera telescópica" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/of6.jpg" alt="Rastrillo plástico" /><div><h3 class="product__name">Rastrillo plástico</h3><p class="product__price"><s>$ 9.900</s> $ 7.900</p><div class="product__cta"><a class="btn buy-btn" data-product="Rastrillo plástico" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/of7.jpg" alt="Césped en rollo económico" /><div><h3 class="product__name">Césped económico</h3><p class="product__price"><s>$ 9.900</s> $ 8.300</p><div class="product__cta"><a class="btn buy-btn" data-product="Césped económico" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/of8.jpg" alt="Guantes reforzados" /><div><h3 class="product__name">Guantes reforzados</h3><p class="product__price"><s>$ 7.200</s> $ 5.900</p><div class="product__cta"><a class="btn buy-btn" data-product="Guantes reforzados" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/of9.jpg" alt="Aspersor 8 funciones" /><div><h3 class="product__name">Aspersor 8 funciones</h3><p class="product__price"><s>$ 15.400</s> $ 12.800</p><div class="product__cta"><a class="btn buy-btn" data-product="Aspersor 8 funciones" target="_blank" rel="noopener">Comprar</a></div></div></article>
+          <article class="product card"><img class="product__img" src="./imagenes/of10.jpg" alt="Maceta cerámica 25cm" /><div><h3 class="product__name">Maceta 25cm</h3><p class="product__price"><s>$ 15.900</s> $ 12.900</p><div class="product__cta"><a class="btn buy-btn" data-product="Maceta 25cm" target="_blank" rel="noopener">Comprar</a></div></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Barra inferior con 3 iconos -->
+  <nav class="bottom-bar" aria-label="Navegación inferior">
+    <a class="bottom-bar__item" href="index.html" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2 12h3v9h6v-6h2v6h6v-9h3L12 3.1Z"/></svg>
+      <span>Home</span>
+    </a>
+    <a class="bottom-bar__item" href="./contacto.html" aria-label="Contacto">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.07 22 2 13.93 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+      <span>Contacto</span>
+    </a>
+    <a class="bottom-bar__item" href="./tienda.html" aria-label="Tiendas">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6h14.1l-1.3 7.3a2 2 0 0 1-2 1.7H9a2 2 0 0 1-2-1.4L4.3 2H1V0h4a1 1 0 0 1 1 .8L6.2 6Z"/></svg>
+      <span>Tienda</span>
+    </a>
+  </nav>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Jardín Vivo — Todos los derechos reservados.</small>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="tienda.js"></script>
+  <script>
+  // Marca el body como "cargando" para evitar scroll
+  document.documentElement.classList.add('js');
+  document.body.classList.add('is-loading');
+
+  // Ocultar loader cuando todo está listo
+  function hideLoader(){
+    const loader = document.getElementById('loader');
+    if(!loader) return;
+    loader.style.opacity = '0';
+    loader.style.pointerEvents = 'none';
+    document.body.classList.remove('is-loading');
+    // Remover del DOM después de la transición (opcional)
+    setTimeout(()=> loader.remove(), 300);
+  }
+
+  // 1) Cuando termine de cargar
+  window.addEventListener('load', () => {
+    // Mantenelo mínimo 600ms visible para que se vea elegante
+    setTimeout(hideLoader, 600);
+  });
+
+  // 2) Fallback: si algo falla, que no quede pegado (>6s)
+  setTimeout(hideLoader, 6000);
+</script>
+
+</body>
+</html>

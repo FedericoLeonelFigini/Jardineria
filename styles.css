@@ -1,0 +1,310 @@
+/* =========
+   Variables
+   ========= */
+:root{
+  --grass: #2e7d32;        /* verde pasto principal */
+  --grass-2: #43a047;      /* variante */
+  --leaf: #a5d6a7;         /* verde claro de apoyo */
+  --ink: #0e2910;          /* verde muy oscuro para contraste si hace falta */
+  --white: #ffffff;
+  --bg: #f7fff8;           /* fondo suave */
+  --shadow: 0 10px 30px rgba(46,125,50,.12);
+  --radius: 18px;
+}
+
+/* ==============
+   Reset básico
+   ============== */
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--grass); /* texto en verde pasto como pediste */
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.55;
+  letter-spacing: .1px;
+}
+
+/* Encabezados con tipografía especial */
+h1,h2,h3,.brand__name{
+  font-family: "Pacifico", cursive;
+  letter-spacing: .5px;
+  color: var(--grass);
+  margin: 0 0 .4rem 0;
+}
+
+/* Enlaces: verdes y hover blanco */
+a{
+  color: var(--grass);
+  text-decoration: none;
+  transition: color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+a:hover,
+a:focus{
+  color: var(--white);
+  background: var(--grass);
+  outline: none;
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--grass) 20%, transparent);
+  border-radius: 8px;
+}
+
+/* =========
+   Header
+   ========= */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: .85rem 1rem;
+  background: color-mix(in oklab, var(--white) 70%, var(--leaf) 30%);
+  box-shadow: var(--shadow);
+  border-bottom: 2px solid color-mix(in oklab, var(--grass) 20%, transparent);
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.brand__logo{
+  width: 42px; height: 42px; object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,.12));
+}
+.brand__name{
+  font-size: 1.4rem;
+}
+
+/* Nav */
+.main-nav{
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+.nav__link{
+  padding: .4rem .7rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in oklab, var(--grass) 35%, transparent);
+  background: color-mix(in oklab, var(--white) 85%, var(--leaf) 15%);
+}
+.nav__link:hover{
+  border-color: transparent;
+}
+
+/* Redes */
+.social{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.social__link{
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  border: 1px dashed color-mix(in oklab, var(--grass) 35%, transparent);
+  background: color-mix(in oklab, var(--white) 80%, var(--leaf) 20%);
+}
+.social__link:hover{ border-style: solid; }
+.social__link svg{ width: 20px; height: 20px; fill: currentColor; }
+
+/* =========
+   Hero
+   ========= */
+.hero{
+  text-align: center;
+  padding: clamp(2rem, 5vw, 4rem) 1rem;
+}
+.hero__title{
+  font-size: clamp(2rem, 4.5vw, 3rem);
+}
+.hero__subtitle{
+  margin: .5rem auto 1.2rem;
+  max-width: 60ch;
+  font-weight: 400;
+  color: color-mix(in oklab, var(--grass) 80%, #1b5e20);
+}
+
+/* Botones */
+.btn{
+  display: inline-block;
+  padding: .75rem 1.1rem;
+  border-radius: 999px;
+  border: 2px solid var(--grass);
+  font-weight: 700;
+  background: transparent;
+}
+.btn:hover{ background: var(--grass); color: var(--white); }
+.btn--primary{
+  background: color-mix(in oklab, var(--grass) 15%, var(--white));
+}
+.btn--outline{
+  border-style: dashed;
+}
+
+/* =========
+   Secciones
+   ========= */
+.section-title{
+  text-align: center;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin: 1rem 0 1.2rem;
+}
+
+.services{
+  padding: 1rem clamp(1rem, 4vw, 2rem) 2rem;
+}
+.services__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.card{
+  background: var(--white);
+  border: 1px solid color-mix(in oklab, var(--grass) 25%, transparent);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+.card__title{
+  font-size: 1.2rem;
+  margin-bottom: .35rem;
+}
+.card__text{
+  color: color-mix(in oklab, var(--grass) 75%, #1a1a1a);
+  margin: 0;
+}
+
+.about, .contact{
+  padding: 1rem clamp(1rem, 4vw, 2rem) 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.contact__actions{
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+/* =========
+   Bottom bar (3 iconos)
+   ========= */
+.bottom-bar{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid color-mix(in oklab, var(--grass) 25%, transparent);
+  background: color-mix(in oklab, var(--white) 85%, var(--leaf) 15%);
+  box-shadow: 0 -10px 30px rgba(46,125,50,.10);
+  z-index: 20;
+}
+.bottom-bar__item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  padding: .7rem .4rem;
+  font-weight: 700;
+  color: var(--grass);
+}
+.bottom-bar__item svg{
+  width: 22px; height: 22px; fill: currentColor;
+}
+.bottom-bar__item:hover{
+  color: var(--white);
+  background: var(--grass);
+}
+
+/* =========
+   Footer
+   ========= */
+.site-footer{
+  text-align: center;
+  padding: 4rem 1rem 5.2rem; /* extra bottom padding para no tapar por la barra */
+  color: color-mix(in oklab, var(--grass) 70%, #0f0f0f);
+  font-size: .95rem;
+}
+
+/* =========
+   Responsivo
+   ========= */
+@media (max-width: 900px){
+  .services__grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px){
+  .site-header{
+    grid-template-columns: 1fr auto;
+    grid-auto-rows: auto;
+  }
+  .main-nav{ order: 3; grid-column: 1 / -1; justify-content: center; }
+  .social{ order: 2; }
+  .services__grid{ grid-template-columns: 1fr; }
+}
+/* Evita que el logo se ponga verde */
+.brand:hover,
+.brand:focus {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ===== Loader pantalla completa ===== */
+#loader{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: color-mix(in oklab, var(--leaf) 20%, rgba(255,255,255,.6));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+}
+
+/* Contenido centrado */
+.loader__inner{
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  text-align: center;
+  padding: 1.2rem 1.4rem;
+  border-radius: 20px;
+  background: color-mix(in oklab, var(--white) 70%, var(--leaf) 30%);
+  box-shadow: var(--shadow);
+  border: 1px solid color-mix(in oklab, var(--grass) 30%, transparent);
+}
+
+/* Marca arriba del círculo */
+.loader__brand{
+  font-family: "Pacifico", cursive;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  color: var(--grass);
+}
+
+/* Círculo de carga (spinner) */
+.loader__spinner{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid color-mix(in oklab, var(--grass) 25%, transparent);
+  border-top-color: var(--grass);
+  animation: spin 900ms linear infinite;
+}
+
+/* Animación */
+@keyframes spin{
+  to { transform: rotate(360deg); }
+}
+
+/* Evitar scroll mientras carga */
+body.is-loading{
+  overflow: hidden;
+}
+
+/* Respeta accesibilidad: menos movimiento si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce){
+  .loader__spinner{ animation-duration: 2.2s; }
+}
