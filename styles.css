@@ -253,7 +253,8 @@ a {
 .hero__image img {
     border-radius: 24px;
     object-fit: cover;
-    aspect-ratio: 3/4;
+    aspect-ratio: 3 / 4;
+    width: 100%;
 }
 
 .hero__tag {
@@ -365,6 +366,7 @@ a {
 .section__header {
     text-align: center;
     margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
 }
 
 .section__header h2 {
@@ -790,15 +792,34 @@ a {
     transform: translateY(0);
 }
 
-/* ==== RESPONSIVE ==== */
+/* =============== RESPONSIVE =============== */
+
+/* Tablets / pantallas medianas */
 @media (max-width: 960px) {
+    .container {
+        width: min(100% - 2rem, 900px);
+    }
+
     .hero__content {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
+        gap: 2.2rem;
     }
 
     .hero__image-wrapper {
         order: -1;
+    }
+
+    .hero__text {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .hero__buttons {
+        justify-content: center;
+    }
+
+    .hero__highlights {
+        justify-content: center;
     }
 
     .categories {
@@ -823,9 +844,14 @@ a {
     }
 }
 
+/* Mobile */
 @media (max-width: 720px) {
     .header__content {
         padding: 0.7rem 0;
+    }
+
+    .container {
+        width: min(100% - 1.5rem, 640px);
     }
 
     .nav-toggle {
@@ -853,7 +879,15 @@ a {
     }
 
     .hero {
-        padding-top: 4rem;
+        padding: 3.2rem 0 2.5rem;
+    }
+
+    .hero__text {
+        text-align: left;
+    }
+
+    .hero__buttons {
+        justify-content: flex-start;
     }
 
     .categories,
@@ -864,5 +898,42 @@ a {
 
     .form__row {
         flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    .banner {
+        padding: 1.4rem 1.3rem;
+    }
+}
+
+/* Mobile chico */
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 2.1rem;
+    }
+
+    .hero__subtitle {
+        font-size: 0.9rem;
+    }
+
+    .hero__image {
+        padding: 1rem;
+    }
+
+    .category-card__img {
+        height: 140px;
+    }
+
+    .product-card__img-wrapper img {
+        height: 220px;
+    }
+
+    .footer__content {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
