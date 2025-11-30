@@ -1,168 +1,393 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tus Servicios — Jardinería</title>
+    <meta charset="UTF-8" />
+    <title>ZAPATOS • Colección Mujer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Tipografías especiales (Google Fonts) -->
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- SEO básico -->
+    <meta name="description" content="Landing page moderna de zapatos de mujer. Descubrí la nueva colección con envíos rápidos, cuotas y diseños exclusivos." />
+    <meta name="keywords" content="zapatos mujer, tacones, zapatillas, sandalias, botas, tienda online, moda femenina" />
+    <meta name="robots" content="index, follow" />
 
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="./imagenes/logo.png" />
-  <meta name="description" content="Presentación de servicios con estilo verde pasto, enlaces interactivos y navegación inferior con iconos." />
+    <!-- FUENTE -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-    <!-- Loader pantalla completa -->
-<div id="loader" aria-hidden="true">
-  <div class="loader__inner">
-    <div class="loader__brand">Jardín Vivo</div>
-    <div class="loader__spinner" role="progressbar" aria-label="Cargando"></div>
-  </div>
-</div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header__content">
+            <div class="logo">
+                <span class="logo__icon">Z</span>
+                <span class="logo__text">ZAPATOS<span>•Mujer</span></span>
+            </div>
 
-  <!-- Encabezado -->
-  <header class="site-header">
-    <a class="brand" href="#" aria-label="Inicio">
-      <img src="./imagenes/logo.png" alt="Logo de la marca" class="brand__logo" />
-      <span class="brand__name">Jardín Vivo</span>
-    </a>
+            <nav class="nav">
+                <a href="#coleccion" class="nav__link">Colección</a>
+                <a href="#categorias" class="nav__link">Categorías</a>
+                <a href="#destacados" class="nav__link">Destacados</a>
+                <a href="#opiniones" class="nav__link">Opiniones</a>
+                <a href="#contacto" class="nav__link nav__link--primary">Quiero comprar</a>
+            </nav>
 
-    <div class="social" aria-label="Redes sociales">
-      <a class="social__link" href="https://wa.me/5491112345678" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <!-- WhatsApp SVG -->
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.92 11.92 0 0 0 12 .5C5.66.5.5 5.66.5 12c0 1.99.49 3.87 1.42 5.56L.5 23.5l6.09-1.57A11.42 11.42 0 0 0 12 23.5c6.34 0 11.5-5.16 11.5-11.5 0-3.07-1.2-5.95-3.48-8.52ZM12 21.2c-1.77 0-3.48-.47-4.98-1.36l-.36-.21-3.61.93.96-3.52-.23-.38A9.75 9.75 0 0 1 2.8 12c0-5.07 4.13-9.2 9.2-9.2s9.2 4.13 9.2 9.2-4.13 9.2-9.2 9.2Zm5.33-6.8c-.29-.14-1.71-.84-1.97-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.34.21-.63.07-.29-.14-1.2-.44-2.3-1.41-.85-.76-1.43-1.7-1.6-1.98-.17-.29-.02-.45.12-.59.12-.12.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.13-.23-.55-.46-.48-.64-.48h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43s1.03 2.82 1.18 3.01c.14.19 2.03 3.1 4.93 4.35.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.56-.08 1.71-.7 1.96-1.38.24-.67.24-1.25.17-1.38-.07-.14-.26-.21-.55-.36Z"></path></svg>
-      </a>
-      <a class="social__link" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-        <!-- Instagram SVG -->
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.27 0 3.67.01 4.96.07 1.2.06 1.85.26 2.28.43.57.22.98.49 1.41.92.43.43.7.83.92 1.4.17.44.37 1.09.43 2.29.06 1.29.07 1.69.07 4.96s-.01 3.67-.07 4.96c-.06 1.2-.26 1.85-.43 2.28a3.87 3.87 0 0 1-.92 1.41c-.43.43-.83.7-1.41.92-.44.17-1.09.37-2.29.43-1.29.06-1.69.07-4.96.07s-3.67-.01-4.96-.07c-1.2-.06-1.85-.26-2.28-.43a3.87 3.87 0 0 1-1.41-.92 3.87 3.87 0 0 1-.92-1.41c-.17-.44-.37-1.09-.43-2.29C2.2 15.67 2.2 15.27 2.2 12s.01-3.67.07-4.96c.06-1.2.26-1.85.43-2.28.22-.57.49-.98.92-1.41.43-.43.83-.7 1.41-.92.44-.17 1.09-.37 2.29-.43C8.33 2.21 8.73 2.2 12 2.2m0-1.7C8.68.5 8.25.51 6.96.57 5.67.63 4.77.84 4.02 1.13c-.77.3-1.43.7-2.09 1.36S1.16 3.25.87 4.02C.58 4.77.37 5.67.31 6.96.25 8.25.2 8.68.2 12s.05 3.75.11 5.04c.06 1.29.27 2.19.56 2.94.29.77.7 1.43 1.36 2.09.66.66 1.32 1.07 2.09 1.36.75.29 1.65.5 2.94.56 1.29.06 1.72.11 5.04.11s3.75-.05 5.04-.11c1.29-.06 2.19-.27 2.94-.56.77-.29 1.43-.7 2.09-1.36.66-.66 1.07-1.32 1.36-2.09.29-.75.5-1.65.56-2.94.06-1.29.11-1.72.11-5.04s-.05-3.75-.11-5.04c-.06-1.29-.27-2.19-.56-2.94-.29-.77-.7-1.43-1.36-2.09C21.48.83 20.82.42 20.05.13c-.75-.29-1.65-.5-2.94-.56C15.82-.49 15.39-.5 12-.5Z"/><path d="M12 5.8A6.2 6.2 0 1 0 18.2 12 6.21 6.21 0 0 0 12 5.8Zm0 10.2A4 4 0 1 1 16 12a4 4 0 0 1-4 4Zm6.4-10.9a1.45 1.45 0 1 0 1.45 1.45A1.45 1.45 0 0 0 18.4 5.1Z"/></svg>
-      </a>
-      <a class="social__link" href="https://x.com/" target="_blank" rel="noopener" aria-label="X">
-        <!-- X (Twitter) SVG -->
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.83l-4.62-6.03L5.1 22H2.34l7.05-8.05L2 2h6.86l4.17 5.6L18.24 2Zm-1.2 18h1.88L7.05 4H5.05l12 16Z"/></svg>
-      </a>
-    </div>
-  </header>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
 
-  <!-- Hero / Presentación breve -->
-  <section class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title" class="hero__title">Cuidamos tu jardín con pasión</h1>
-    <p class="hero__subtitle">Podas, diseño de espacios verdes, riego y mantenimiento integral.</p>
-    <a href="#servicios" class="btn btn--primary">Ver servicios</a>
-  </section>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero__gradient"></div>
+        <div class="container hero__content">
+            <div class="hero__text reveal">
+                <p class="hero__badge">Nueva temporada 2026 • Edición limitada</p>
+                <h1 class="hero__title">
+                    Zapatos de mujer<br>
+                    <span>elegantes, cómodos y modernos.</span>
+                </h1>
+                <p class="hero__subtitle">
+                    Descubrí la colección pensada para acompañarte en cada paso:
+                    desde la oficina hasta la noche, con estilo y comodidad.
+                </p>
+                <div class="hero__buttons">
+                    <a href="#destacados" class="btn btn--primary">Ver modelos</a>
+                    <a href="#coleccion" class="btn btn--ghost">Explorar colección</a>
+                </div>
 
-  <!-- Presentación de los servicios -->
-  <main id="servicios" class="services" aria-labelledby="servicios-title">
-    <h2 id="servicios-title" class="section-title">Nuestros servicios</h2>
+                <div class="hero__highlights">
+                    <div class="highlight">
+                        <span class="highlight__number">12x</span>
+                        <span class="highlight__text">Cuotas sin interés</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight__number">48h</span>
+                        <span class="highlight__text">Envíos rápidos</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight__number">+150</span>
+                        <span class="highlight__text">Modelos exclusivos</span>
+                    </div>
+                </div>
+            </div>
 
-    <div class="services__grid">
-      <article class="card">
-        <h3 class="card__title">Poda</h3>
-        <p class="card__text">
-          Poda segura para árboles y arbustos, dando forma y salud a tus plantas.
-        </p>
-      </article>
+            <div class="hero__image-wrapper reveal">
+                <div class="hero__image floating-card">
+                    <div class="hero__tag">Colección Premium</div>
+                    <div class="hero__circle hero__circle--1"></div>
+                    <div class="hero__circle hero__circle--2"></div>
+                    <!-- IMAGEN HERO -->
+                    <img src="https://via.placeholder.com/600x800?text=Zapatos+Mujer" alt="Zapatos de mujer" />
+                </div>
+                <div class="hero__mini-card">
+                    <p>+92% de clientas repiten compra</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <article class="card">
-        <h3 class="card__title">Diseño de jardines</h3>
-        <p class="card__text">
-          Propuestas estéticas y funcionales con especies adaptadas a tu espacio.
-        </p>
-      </article>
+    <!-- CATEGORÍAS -->
+    <section class="section" id="categorias">
+        <div class="container">
+            <div class="section__header reveal">
+                <h2>Categorías de zapatos</h2>
+                <p>Elegí el estilo que mejor va con vos. Podés combinar varios en un mismo pedido.</p>
+            </div>
 
-      <article class="card">
-        <h3 class="card__title">Mantenimiento</h3>
-        <p class="card__text">
-          Plan de cuidados para todo el año.
-        </p>
-      </article>
+            <div class="categories">
+                <article class="category-card reveal">
+                    <img src="https://via.placeholder.com/400x260?text=Tacones" alt="Tacones" class="category-card__img">
+                    <h3>Tacones & Stilettos</h3>
+                    <p>
+                        Altura perfecta, estabilidad y diseño elegante para eventos, oficina o salida nocturna.
+                    </p>
+                    <ul>
+                        <li>Alturas reguladas y cómodas</li>
+                        <li>Terminaciones en punta y cuadradas</li>
+                        <li>Materiales premium y antideslizantes</li>
+                    </ul>
+                </article>
 
-      <article class="card">
-        <h3 class="card__title">Siembra de pasto</h3>
-        <p class="card__text">
-          La siembra de pasto renueva tu jardín con cobertura uniforme y resistente.
-        </p>
-      </article>
+                <article class="category-card reveal">
+                    <img src="https://via.placeholder.com/400x260?text=Zapatillas+Urbanas" alt="Zapatillas urbanas" class="category-card__img">
+                    <h3>Zapatillas Urbanas</h3>
+                    <p>
+                        Comodidad absoluta sin perder estilo. Ideales para looks casuales o streetwear.
+                    </p>
+                    <ul>
+                        <li>Suela liviana y flexible</li>
+                        <li>Diseños minimalistas y coloridos</li>
+                        <li>Perfectas para uso diario</li>
+                    </ul>
+                </article>
 
-      <article class="card">
-        <h3 class="card__title">Colocacion de pasto</h3>
-        <p class="card__text">
-          ideal para quienes buscan un resultado rápido, uniforme y resistente sin esperar semanas de germinación.
-        </p>
-      </article>
+                <article class="category-card reveal">
+                    <img src="https://via.placeholder.com/400x260?text=Sandalias" alt="Sandalias" class="category-card__img">
+                    <h3>Sandalias & Platforms</h3>
+                    <p>
+                        Diseños frescos y veraniegos, con tiras suaves y plataformas estables.
+                    </p>
+                    <ul>
+                        <li>Sandalias planas y con taco</li>
+                        <li>Plataformas livianas</li>
+                        <li>Ideales para días largos</li>
+                    </ul>
+                </article>
 
-      <article class="card">
-        <h3 class="card__title">Cortar el cesped</h3>
-        <p class="card__text">
-          El corte de césped regular mantiene tu jardín parejo, sano y estético.
-        </p>
-      </article>
-    </div>
-  </main>
+                <article class="category-card reveal">
+                    <img src="https://via.placeholder.com/400x260?text=Botas+y+Borcegos" alt="Botas y borcegos" class="category-card__img">
+                    <h3>Botas & Borcegos</h3>
+                    <p>
+                        Para otoño-invierno, con cuero sintético o gamuza, listas para el día y la noche.
+                    </p>
+                    <ul>
+                        <li>Botas caña corta y media</li>
+                        <li>Borcegos urbanos</li>
+                        <li>Modelos con cierre y cordones</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
 
-  <!-- Sección Sobre nosotros -->
-  <section id="sobre" class="about" aria-labelledby="sobre-title">
-    <h2 id="sobre-title" class="section-title">Sobre nosotros</h2>
-    <p>
-      Somos un equipo especializado en jardinería y paisajismo. Trabajamos con
-      materiales de primera y un enfoque sustentable para que tu verde luzca siempre vivo.
-    </p>
-  </section>
+    <!-- COLECCIÓN DESTACADA -->
+    <section class="section section--light" id="coleccion">
+        <div class="container">
+            <div class="section__header reveal">
+                <h2>Colección cápsula • Mujer 2026</h2>
+                <p>Algunos modelos que podés destacar en tu landing. Cambiá imágenes, textos y precios a gusto.</p>
+            </div>
 
+            <div class="products-grid" id="destacados">
+                <!-- PRODUCTO 1 -->
+                <article class="product-card reveal">
+                    <div class="product-card__img-wrapper">
+                        <img src="https://via.placeholder.com/400x260?text=Stiletto+Nude" alt="Stiletto Nude Essential" />
+                        <span class="product-card__badge">Nuevo</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Stiletto Nude Essential</h3>
+                        <p class="product-card__desc">
+                            Tacón medio, cómodo y versátil. Ideal para oficina y salidas formales.
+                        </p>
+                        <div class="product-card__price-row">
+                            <span class="product-card__price">$39.990</span>
+                            <span class="product-card__tag">3 colores</span>
+                        </div>
+                        <button class="btn btn--full btn-whatsapp" data-producto="Stiletto Nude Essential">
+                            Lo quiero
+                        </button>
+                    </div>
+                </article>
 
-  <!-- Barra inferior con 3 iconos -->
-  <nav class="bottom-bar" aria-label="Navegación inferior">
-    <a class="bottom-bar__item" href="#" aria-label="Home">
-      <!-- Casa -->
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1 2 12h3v9h6v-6h2v6h6v-9h3L12 3.1Z"/></svg>
-      <span>Home</span>
-    </a>
-    <a class="bottom-bar__item" href="./contacto.html" aria-label="Contacto">
-      <!-- Teléfono -->
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.07 22 2 13.93 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
-      <span>Contacto</span>
-    </a>
-    <a class="bottom-bar__item" href="./tienda.html" aria-label="Tiendas">
-      <!-- Carrito -->
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6h14.1l-1.3 7.3a2 2 0 0 1-2 1.7H9a2 2 0 0 1-2-1.4L4.3 2H1V0h4a1 1 0 0 1 1 .8L6.2 6Z"/></svg>
-      <span>Tienda</span>
-    </a>
-  </nav>
+                <!-- PRODUCTO 2 -->
+                <article class="product-card reveal">
+                    <div class="product-card__img-wrapper">
+                        <img src="https://via.placeholder.com/400x260?text=Zapatilla+Urbana" alt="Zapatilla Urban Soft" />
+                        <span class="product-card__badge product-card__badge--secondary">Best seller</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Zapatilla Urban Soft</h3>
+                        <p class="product-card__desc">
+                            Plantilla acolchada y suela ultra ligera. Para caminatas largas sin cansancio.
+                        </p>
+                        <div class="product-card__price-row">
+                            <span class="product-card__price">$34.500</span>
+                            <span class="product-card__tag">Envío 48h</span>
+                        </div>
+                        <button class="btn btn--full btn-whatsapp" data-producto="Zapatilla Urban Soft">
+                            Lo quiero
+                        </button>
+                    </div>
+                </article>
 
-  <footer class="site-footer">
-    <small>© <span id="year"></span> Jardín Vivo — Todos los derechos reservados.</small>
-  </footer>
+                <!-- PRODUCTO 3 -->
+                <article class="product-card reveal">
+                    <div class="product-card__img-wrapper">
+                        <img src="https://via.placeholder.com/400x260?text=Sandalia+Minimal" alt="Sandalia Minimal Sun" />
+                        <span class="product-card__badge">Colección verano</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Sandalia Minimal Sun</h3>
+                        <p class="product-card__desc">
+                            Tiras suaves, plataforma baja y diseño minimalista que combina con todo.
+                        </p>
+                        <div class="product-card__price-row">
+                            <span class="product-card__price">$29.900</span>
+                            <span class="product-card__tag">Nuevo</span>
+                        </div>
+                        <button class="btn btn--full btn-whatsapp" data-producto="Sandalia Minimal Sun">
+                            Lo quiero
+                        </button>
+                    </div>
+                </article>
 
-  <script>
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script>
-  // Marca el body como "cargando" para evitar scroll
-  document.documentElement.classList.add('js');
-  document.body.classList.add('is-loading');
+                <!-- PRODUCTO 4 -->
+                <article class="product-card reveal">
+                    <div class="product-card__img-wrapper">
+                        <img src="https://via.placeholder.com/400x260?text=Bota+Night+Street" alt="Bota Night Street" />
+                        <span class="product-card__badge product-card__badge--secondary">Limited</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Bota Night Street</h3>
+                        <p class="product-card__desc">
+                            Bota urbana, taco cuadrado y terminaciones premium. Perfecta para looks de noche.
+                        </p>
+                        <div class="product-card__price-row">
+                            <span class="product-card__price">$52.000</span>
+                            <span class="product-card__tag">Pocas unidades</span>
+                        </div>
+                        <button class="btn btn--full btn-whatsapp" data-producto="Bota Night Street">
+                            Lo quiero
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-  // Ocultar loader cuando todo está listo
-  function hideLoader(){
-    const loader = document.getElementById('loader');
-    if(!loader) return;
-    loader.style.opacity = '0';
-    loader.style.pointerEvents = 'none';
-    document.body.classList.remove('is-loading');
-    // Remover del DOM después de la transición (opcional)
-    setTimeout(()=> loader.remove(), 300);
-  }
+    <!-- BANNER INTERMEDIO -->
+    <section class="section section--banner">
+        <div class="container banner reveal">
+            <div class="banner__content">
+                <h2>Arma tu propio catálogo de zapatos.</h2>
+                <p>
+                    Usá esta landing como base para mostrar tu marca, tus modelos y tus promociones.
+                    Podés reemplazar imágenes, textos y precios en segundos.
+                </p>
+                <ul>
+                    <li>✔ Diseños responsive</li>
+                    <li>✔ Integración con WhatsApp</li>
+                    <li>✔ Animaciones suaves y modernas</li>
+                </ul>
+            </div>
+            <div class="banner__tag">
+                <span>100% Editable</span>
+            </div>
+        </div>
+    </section>
 
-  // 1) Cuando termine de cargar
-  window.addEventListener('load', () => {
-    // Mantenelo mínimo 600ms visible para que se vea elegante
-    setTimeout(hideLoader, 600);
-  });
+    <!-- OPINIONES -->
+    <section class="section" id="opiniones">
+        <div class="container">
+            <div class="section__header reveal">
+                <h2>Lo que dicen nuestras clientas</h2>
+                <p>Agregá opiniones reales para aumentar la confianza y la conversión.</p>
+            </div>
 
-  // 2) Fallback: si algo falla, que no quede pegado (>6s)
-  setTimeout(hideLoader, 6000);
-</script>
+            <div class="testimonials">
+                <article class="testimonial-card reveal">
+                    <p class="testimonial-card__text">
+                        “Los tacos son súper cómodos. Estuve todo el día en un evento y no sentí dolor.”
+                    </p>
+                    <div class="testimonial-card__user">
+                        <span class="avatar">A</span>
+                        <div>
+                            <h4>Agustina</h4>
+                            <span>Buenos Aires</span>
+                        </div>
+                    </div>
+                </article>
 
+                <article class="testimonial-card reveal">
+                    <p class="testimonial-card__text">
+                        “Las zapatillas urbanas son perfectas para ir a la facu y salir. Combinan con todo.”
+                    </p>
+                    <div class="testimonial-card__user">
+                        <span class="avatar">M</span>
+                        <div>
+                            <h4>Mariana</h4>
+                            <span>Córdoba</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="testimonial-card reveal">
+                    <p class="testimonial-card__text">
+                        “Llegaron rápido y la calidad es mejor de lo que esperaba. Ya hice mi segunda compra.”
+                    </p>
+                    <div class="testimonial-card__user">
+                        <span class="avatar">L</span>
+                        <div>
+                            <h4>Lorena</h4>
+                            <span>Rosario</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER / CONTACTO -->
+    <section class="section section--light" id="contacto">
+        <div class="container contact reveal">
+            <div class="contact__info">
+                <h2>¿Querés esta landing para tu marca de zapatos?</h2>
+                <p>
+                    Podés usarla para capturar leads, vender directamente o mostrar tu catálogo.
+                    Completa el formulario o escribinos por WhatsApp.
+                </p>
+                <ul class="contact__bullets">
+                    <li>Landing optimizada para campañas</li>
+                    <li>Preparada para Google Ads / Meta Ads</li>
+                    <li>Integración con botones a WhatsApp</li>
+                </ul>
+                <button class="btn btn--primary btn-whatsapp" data-producto="Landing de zapatos mujer">
+                    Hablar por WhatsApp
+                </button>
+            </div>
+
+            <form class="contact__form" id="contactForm">
+                <div class="form__row">
+                    <div class="form__group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+                    </div>
+                    <div class="form__group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="tunombre@email.com" required />
+                    </div>
+                </div>
+
+                <div class="form__group">
+                    <label for="interes">¿Qué te interesa?</label>
+                    <select id="interes" name="interes">
+                        <option value="landing">Landing para mi marca</option>
+                        <option value="catalogo">Catálogo completo de zapatos</option>
+                        <option value="tienda">Tienda online + carrito</option>
+                    </select>
+                </div>
+
+                <div class="form__group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Contanos qué tipo de zapatos vendés, estilo de marca, etc."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn--full">Enviar consulta</button>
+                <p class="form__status" id="formStatus"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p>© <span id="year"></span> Zapatos Mujer • Landing Demo</p>
+            <div class="footer__links">
+                <a href="#hero">Inicio</a>
+                <a href="#coleccion">Colección</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN IR ARRIBA -->
+    <button class="btn-top" id="btnTop" aria-label="Volver arriba">▲</button>
+
+    <!-- JS -->
+    <script src="script.js" defer></script>
 </body>
 </html>
